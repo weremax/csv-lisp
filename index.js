@@ -11,13 +11,14 @@ var insuranceCompanies = [];
 var members = {};
 var proc = {};
 var arr = [];
+var counter = 0;
 
 rl.on('line', function(line) {
     arr.push(line);
 });
 
 getInsurance = () => {
-    let counter = 0;
+
     arr.forEach(el => {
         if (counter !== 0) {
             let data = el.split(',');
@@ -65,4 +66,6 @@ processMembers = () => {
 rl.on('close', async () => {
     await getInsurance();
     processMembers();
+    console.log(`Total Number of lines processed: ${ counter - 1}`);
+    console.log(`Files created: ${insuranceCompanies.length}`);
 });
