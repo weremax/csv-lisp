@@ -40,10 +40,7 @@ getInsurance = () => {
             } else {
                 members[userId] = data;
             }
-            
-
         }
-
         counter++;
     });
 }
